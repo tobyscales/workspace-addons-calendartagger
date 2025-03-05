@@ -1,0 +1,51 @@
+{
+  "timeZone": "America/New_York",
+  "exceptionLogging": "STACKDRIVER",
+  "dependencies": {
+    "enabledAdvancedServices": [
+      {
+        "userSymbol": "Calendar",
+        "serviceId": "calendar",
+        "version": "v3"
+      }
+    ]
+  },
+  "addOns": {
+    "common": {
+      "name": "Calendar Tagger",
+      "logoUrl": "https://www.gstatic.com/images/icons/material/system/1x/label_black_48dp.png",
+      "layoutProperties": {
+        "primaryColor": "#8f0000",
+        "secondaryColor": "#940000"
+      },
+      "useLocaleFromApp": true,
+      "universalActions": [{
+        "label": "Remove Calendar Tagger",
+        "openLink": "https://cataas.com"
+      }]
+    },
+    "calendar": {
+      "currentEventAccess": "READ_WRITE",
+      "eventOpenTrigger": {
+        "runFunction": "onCalendarEventOpen"
+      },
+      "eventUpdateTrigger": {
+        "runFunction": "saveTagsToEvent"
+      },
+      "homepageTrigger": {
+        "runFunction": "onHomePageOpen"
+  }
+    }
+  },
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/calendar.events",
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/script.storage",
+    "https://www.googleapis.com/auth/script.locale",
+    "https://www.googleapis.com/auth/script.container.ui",
+    "https://www.googleapis.com/auth/calendar.addons.execute",
+    "https://www.googleapis.com/auth/calendar.addons.current.event.read",
+    "https://www.googleapis.com/auth/calendar.addons.current.event.write"
+  ],
+  "runtimeVersion": "V8"
+}
